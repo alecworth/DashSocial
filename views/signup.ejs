@@ -1,6 +1,6 @@
 <%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
+    <main class="container d-flex justify-content-center mt-5 min-vh-100">
+        <div class="loginCard row justify-content-center p-5 rounded shadow-sm" style="width: 50%;">
             <section class="col-6 mt-5">
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
