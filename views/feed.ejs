@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="d-flex">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5 p-4 bg-white rounded shadow-sm">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid rounded" src="<%= posts[i].image%>">
+            </a>
+            <div class="row align-items-center">
+              <h3 class="col-3">Likes: <%= posts[i].likes %></h3>
+              <h2 class="col-6 text-center"><%= posts[i].title %></h2>
+              <form
+              class="col-3"
+              action="/post/likePost/<%= posts[i]._id %>?_method=PUT"
+              method="POST"
+              >
+              <button class="btn btn-primary fa fa-heart" type="submit"></button>
+              </form>
+              <p class="text-center"><%= posts[i].caption %></p>
+            </div>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>
