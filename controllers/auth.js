@@ -4,8 +4,8 @@ const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect("/profile");
-  }
+    return res.redirect("/profile")
+   }
   res.render("login",  {
     title: "Login", isIndexPage: true
   });
@@ -32,7 +32,7 @@ exports.postLogin = (req, res, next) => {
     }
     if (!user) {
       req.flash("errors", info);
-      return res.redirect("/login");
+      return res.redirect("/");
     }
     req.logIn(user, (err) => {
       if (err) {
